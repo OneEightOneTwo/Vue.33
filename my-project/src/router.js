@@ -17,8 +17,8 @@ import Mine from "./pages/Home/Mine.vue";
 import Notice from "./pages/Home/discover/Notice.vue"; 
 import Close from "./pages/Home/discover/Close.vue"; 
 
-// // 搜索页
-import Search from "./pages/Search.vue"; 
+// //设置
+import Setting from "./pages/Setting.vue"; 
 
 // 定义路由
 const routes = [ {
@@ -36,7 +36,9 @@ const routes = [ {
                   ]
       },  {path:"mine", component:Mine, name:"mine"}
     ]
-  },  {path:"/detail/:id", component:Detail, name:"detail"},  {path:"/search", component:Search, name:"search"}, 
+  },  
+  {path:"/detail/:id", component:Detail, name:"detail"},  
+  {path:"/setting", component:Setting, name:"setting"}, 
     //设置默认重定向 
   {path:"/", redirect:"/home/wechat"}
 ]; 

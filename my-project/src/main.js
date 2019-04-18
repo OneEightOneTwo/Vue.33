@@ -7,6 +7,10 @@ import router from "./router.js";
 import "./assets/icon/iconfont.css";
 import 'weui';
 import "./rem.js";
+
+import Vant from "vant";
+import "vant/lib/index.css";
+Vue.use(Vant);
 //vue继承jquery的方法
 Vue.prototype.$ = $;
 //等同Vue.set("$axios", axios);

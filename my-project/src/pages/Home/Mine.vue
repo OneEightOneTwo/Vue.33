@@ -2,7 +2,7 @@
         <div class="main">
             <div class="my_head">
                 <div class="myh_set">
-                    <span>设置</span>
+                    <span @click ="gotoset()">设置</span>
                 </div>
                 <div class="my_headphoto">
                     <span class="myhead">
@@ -10,10 +10,10 @@
                     </span>
                 </div>
                 <p class="myname">
-                    <span>草木生</span>, <span>22</span>
+                    <span v-text="my_data.my_name"></span>, <span v-text="my_data.my_age"></span>
                 </p>
-                <p class="my_signature">
-                    用走心的签名打动对的人！点击编辑 <i class="bianji iconfont icon-bianji"></i>
+                <p class="my_signature" v-html="my_data.my_signature + icon">
+                    
                 </p>
                 <div class="hismessage">
                     <span class="my_hismeg">
@@ -23,17 +23,17 @@
                 </div>
                 <div class="myallmeg">
                     <div class="mymegbox">
-                        <p class="megnum">0</p>
+                        <p class="megnum" v-text="my_data.my_photonum">0</p>
                         <p class="megtext">相册</p>
                     </div>
                     <span class="mymegline"></span>
                     <div class="mymegbox">
-                        <p class="megnum">0</p>
+                        <p class="megnum" v-text="my_data.my_fans">0</p>
                         <p class="megtext">粉丝</p>
                     </div>
                     <span class="mymegline"></span>
                     <div class="mymegbox">
-                        <p class="megnum">1</p>
+                        <p class="megnum" v-text="my_data.my_notice">1</p>
                         <p class="megtext">关注</p>
                     </div>
                 </div>
@@ -143,9 +143,6 @@
     font-size: .37037rem;
     color: #b5b5b5;
     margin-top: .435185rem;
-}
-.my_signature .bianji{
-    color: #75abeb;
 }
 .hismessage{
     margin-top: .453704rem;
@@ -278,18 +275,30 @@
 }
 </style>
 <script>
-import request from "../../request.js";
+// import request from "../../request.js";
 export default {
   data() {
     return {
-      
+      my_data:{
+        my_name:'草木生',
+        my_age:'22',
+        my_signature:'',
+        my_photonum:0,
+        my_fans:0,
+        my_notice:1
+      },
+      icon:'<i class="iconfont icon-bianji" style="color:#75abeb;"></i>'
     };
   },
   created() {
-    this.loadData();
+    if(!this.my_data.my_signature){
+        this.my_data.my_signature = '用走心的签名打动对的人！点击编辑';
+    }
   },
   methods: {
-    
+    gotoset(){
+        this.$router.push({ name: "setting"});
+    }
   },
   components: {
     
