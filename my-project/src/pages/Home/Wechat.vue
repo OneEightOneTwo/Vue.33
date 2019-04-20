@@ -1,11 +1,11 @@
 <template>
-    <div class="main">探探</div>
+    <div>
+        <router-view></router-view>
+    </div>
 </template>
-<style>
-
+<style scoped>
 </style>
 <script>
-export default {
-    
-}
+//tantan
+export default {};
 </script>
