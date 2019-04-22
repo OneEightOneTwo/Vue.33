@@ -21,26 +21,63 @@ import Close from "./pages/Home/discover/Close.vue";
 import Setting from "./pages/Setting.vue"; 
 
 // 定义路由
-const routes = [ {
-    path:"/home", 
-    component:Home, 
-    name:"home", 
-    children:[ {path:"wechat", component:Wechat, name:"wechat"},  {path:"contact", component:Contact, name:"contact"},  {
-        path:"discover", 
-        component:Discover, 
-        name:"discover", 
-        redirect: "/home/discover/notice",  //定向到关注
-        children:[ {path:"notice", component:Notice, name:"notice"}, //关注 
-                    { path: "close", component: Close, name: "close" },    //附近
-// { path: "/home/discover", redirect: "notice" }
-                  ]
-      },  {path:"mine", component:Mine, name:"mine"}
+const routes = [
+  {
+    path: "/home",
+    component: Home,
+    name: "home",
+    children: [
+      { path: "wechat", component: Wechat, name: "wechat" },
+      { path: "contact", component: Contact, name: "contact" },
+      {
+        path: "discover",
+        component: Discover,
+        name: "discover",
+        redirect: "/home/discover/notice", //定向到关注
+        children: [
+          {
+            path: "notice",
+            component: Notice,
+            name: "notice",
+            children: [
+              {
+                path: "detail/:id",
+                component: Detail,
+                name: "detail"
+              }
+            ]
+          }, //关注
+          {
+            path: "close",
+            component: Close,
+            name: "close",
+            children: [
+              {
+                path: "detail/:id",
+                component: Detail,
+                name: "detail2"
+              }
+            ]
+          } //附近
+          // { path: "/home/discover", redirect: "notice" }
+        ]
+      },
+      {
+        path: "mine",
+        component: Mine,
+        name: "mine",
+        children: [
+          {
+            path: "setting",
+            component: Setting,
+            name: "setting"
+          }
+        ]
+      }
     ]
-  },  
-  {path:"/detail/:id", component:Detail, name:"detail"},  
-  {path:"/setting", component:Setting, name:"setting"}, 
-    //设置默认重定向 
-  {path:"/", redirect:"/home/wechat"}
+  },
+  //设置默认重定向
+  { path: "/", redirect: "/home/wechat" }
 ]; 
 // 实例化路由
 const router = new VueRouter( {

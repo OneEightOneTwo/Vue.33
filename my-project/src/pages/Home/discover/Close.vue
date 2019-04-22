@@ -73,6 +73,7 @@
             
         </ul>
         <Xgallery/>
+        <cube-view></cube-view>
     </div>
 </template>
 <style>
@@ -109,6 +110,7 @@
 // 预览图
 import Xgallery from "../../../components/Xgallery.vue";
 import state from "../../../observable.js";
+import CubeView from '../../../components/cube-view.vue'
 export default {
     data(){
         return{
@@ -192,12 +194,13 @@ export default {
         },
         gotodetail(id){
             // console.log(111)
-            this.$router.push({ name: "detail", params: { id } });
+            this.$router.push({ name: "detail2", params: { id } });
         }
     
     },
     components: {
-    Xgallery
+    Xgallery,
+    CubeView
     },
     computed: { //用这个来拿公有数据
     state() {

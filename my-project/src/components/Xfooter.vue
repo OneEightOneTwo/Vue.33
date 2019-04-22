@@ -1,5 +1,5 @@
 <template>
-  <div class="weui-tabbar" style="height:53px;position:static;">
+  <div class="weui-tabbar" style="height:1.740741rem;position:static;">
     <a
       @click="toTab(index)"
       v-for="(t,index) in tabbar"

@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import './cube-ui'
 import App from './App.vue'
 import $ from 'jquery'
 import axios from "axios"  //全局

@@ -1,8 +1,12 @@
 <template>
     <div class="home">
+
+    
     <keep-alive>
     <router-view></router-view>
     </keep-alive>
+    
+
     <Xfooter />
     </div>
 </template>
@@ -15,6 +19,7 @@ export default {
     Xfooter
   }
   
+  
 }
 </script>
 <style>
@@ -24,8 +29,10 @@ export default {
   flex-direction: column;
 }
 .main{
+    position: relative;
     flex: 1;
 }
+
 </style>
 
 

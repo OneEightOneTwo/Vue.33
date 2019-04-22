@@ -85,6 +85,7 @@
                     </li>
                 </ul>
             </div>
+            <cube-view></cube-view>
         </div>
 </template>
 <style scoped>
@@ -276,6 +277,7 @@
 </style>
 <script>
 // import request from "../../request.js";
+import CubeView from '../../components/cube-view.vue'
 export default {
   data() {
     return {
@@ -301,7 +303,7 @@ export default {
     }
   },
   components: {
-    
+    CubeView
   }
 };
 </script>

@@ -7,7 +7,7 @@
                 v-for="(item,index) in tab" 
                 :key="index" 
                 v-text="item.title"
-                :class="{'active':tab_index == index}"
+                :class="{'active':item.name == routername}"
                 @click = "toggle(index)"
                 ></li>
             </ul>
@@ -18,9 +18,15 @@
                 </span>
             </div>
         </header>
+
+        
         <keep-alive>
         <router-view></router-view>
         </keep-alive>
+
+        <!-- <transition :name="transitionName">
+        <router-view class="Router" v-if="!$route.meta.keepAlive"></router-view>
+        </transition> -->
     </div>
 </template>
 <style scoped>
@@ -92,6 +98,9 @@ header .push{
     justify-content:flex-end;
     align-items:center;
 }
+
+
+
 </style>
 <script>
 export default {
@@ -101,15 +110,23 @@ export default {
                 {title:"关注",name:'notice'},
                 {title:"附近",name:'close'}
             ],
-            tab_index:0   
+            tab_index:0,
+            routername:'',
+            transitionName: 'slide-right'  
         }
+    },
+    mounted: function () {
+        this.routername = this.$router.history.current.matched[2].name;
     },
     methods:{
         toggle(index){
             let name = this.tab[index].name;
             this.tab_index = index;
             this.$router.push({name});
+            this.routername = this.$router.history.current.matched[2].name;
+            console.log(this.$router)
         }
     }
+    
 }
 </script>

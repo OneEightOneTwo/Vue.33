@@ -1,13 +1,23 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <keep-alive>
+    <router-view class="Router"></router-view>
+    </keep-alive>
+
   </div>
 </template>
 
 <script>
-
-
+export default {
+  data(){
+    return{
+      
+    }
+  }
+  
+}
 </script>
+
 
 <style>
 *{
@@ -20,5 +30,6 @@ html,body{
   height: 100%;
   overflow: hidden;
 }
+
 </style>
 

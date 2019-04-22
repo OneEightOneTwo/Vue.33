@@ -129,9 +129,16 @@
   box-sizing: border-box;
 }
 .detail{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   height: 100%;
   display: flex;
   flex-direction: column;
+  z-index: 501;
+  background: white;
 }
 .d_head{
   padding-top: .925926rem;
@@ -373,6 +380,7 @@ export default {
         },
         //点击关注
         toggle(){
+            console.log(this.$router)
             if(this.user_detail.followed == 0){
                 this.user_detail.followed =  1;
                 //发送请求  更改follow的值
